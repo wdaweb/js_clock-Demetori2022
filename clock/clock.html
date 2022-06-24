@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等化器時鐘</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="clockbox">
+        <div id="clock">
+            <div class="hstrip"></div>
+            <div class="mstrip"></div>
+            <div class="sstrip"></div>
+            <div id="hour"></div>
+            <div id="minute"></div>
+            <div id="second"></div>
+        </div>
+        <div class="show">
+            <div id="hshow">00</div>
+        </div>
+        <div class="show">
+            <div id="mshow">00</div>
+        </div>
+        <div class="show">
+            <div id="sshow">00</div>
+        </div>
+        <div class="ap">
+            <div id="ampm">AM</div>
+        </div>
+        <div class="toggleClass" onclick="toggleClass()"></div>
+    </div>
+
+    <script>
+        const elHour = document.getElementById('hour')
+        const elMinute = document.getElementById('minute')
+        const elSecond = document.getElementById('second')
+        const ampm = document.getElementById('ampm')
+        function toggleClass() {
+            const body = document.querySelector('body')
+            body.classList.toggle('dark')
+        }
+
+        setInterval(() => {
+            const date = new Date()
+
+            //  clock 高度為 649px(已減掉border的寬度) 因為分針與秒針開始與結束的數字為 0 和 59 最多只會跑59次 
+            //  所以將 649 除已 59 會等於 11 而scaleY軸往上升為負數 因此乘以 -11
+            elMinute.style.transform = `scaleY(${date.getMinutes() * -11})`
+            elSecond.style.transform = `scaleY(${date.getSeconds() * -11})`
+
+            const hshow = document.getElementById('hshow')
+            const mshow = document.getElementById('mshow')
+            const sshow = document.getElementById('sshow')
+            
+            let h = new Date().getHours()
+            let m = new Date().getMinutes()
+            let s = new Date().getSeconds()
+
+            let am = h >= 12 ? "PM" : "AM"
+
+            if (h > 12) {
+                h = h - 12 
+            }
+
+            // 時段為半夜0點到上午11點 因此時針開始與結束的數字為 0 和 11 只會跑11次
+            // 但中午12點的數字會顯示出來 所以將 649 除以 12 會得到 54.1(四捨五入) 因此乘以 -54.1
+            if (am == "AM") {
+                elHour.style.transform = `scaleY(${date.getHours() * -54.1})`
+            }
+
+            // 時段為下午1點到上午11點 一樣只會跑11次 但會加上之前上午時段的高度 因此要扣掉之前超出的高度
+            if (am == "PM") {
+                elHour.style.transform = `scaleY(${date.getHours() * -59 + 708})`
+            }
+
+            // 中午12點 時針會到最高點的位置
+            if (h == 12 && am == "PM") {
+                elHour.style.transform = `scaleY(${date.getHours() * -54.1})`
+            }
+
+            h = (h < 10) ? "0" + h :h
+            m = (m < 10) ? "0" + m :m
+            s = (s < 10) ? "0" + s :s
+
+            hshow.innerHTML = h
+            mshow.innerHTML = m
+            sshow.innerHTML = s
+            ampm.innerHTML = am
+        }, 1000)
+
+    </script>
+</body>
+</html>

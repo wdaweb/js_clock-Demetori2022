@@ -1,0 +1,253 @@
+html,
+body {
+    height: 100%;
+    background: rgba(231, 217, 254);
+    margin: 0;
+    padding: 0;
+}
+
+body.dark {
+    background: #0a1b23;
+}
+
+#clockbox {
+    width: 500px;
+    height: 900px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(rgb(90, 31, 92) 10%, rgb(33, 14, 128) 40%, rgb(81, 18, 183) 90%);
+    border: 2px solid blueviolet;
+    border-radius: 3%;
+    box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3),
+        8px 10px 15px rgba(0, 0, 0, 0.5),
+        12px 15px 20px rgba(0, 0, 0, 0.7);
+}
+
+body.dark #clockbox {
+    background: linear-gradient(rgb(253, 0, 0), rgb(252, 2, 135), rgb(249, 100, 1));
+    border: 2px solid blue;
+    box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.5),
+        8px 10px 15px rgba(0, 0, 0, 0.7),
+        12px 15px 20px rgba(0, 0, 0, 0.9);
+}
+
+#clock {
+    width: 399PX;
+    height: 651PX;
+    border-radius: 1%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    border:1px solid rgba(255, 255, 255,0.5);
+    transform: translate(-50%, -75%);
+    background-color: rgba(255, 255, 255,0.3);
+}
+
+body.dark #clock {
+    background-color: rgba(0, 0, 0,0.3);
+    border:1px solid rgba(0, 0, 0,0.5)
+}
+
+#clock:hover {
+    border: 1px solid rgba(255, 255, 255,0.9);
+    background-color: rgba(255, 255, 255,0.5);
+}
+
+body.dark #clock:hover {
+    border: 1px solid rgba(0, 0, 0,0.9);
+    background-color: rgba(0, 0, 0,0.5);
+}
+
+.hstrip {
+    width: 39px;
+    height: 647.5px;
+    background: rgb(71, 66, 66);
+    position: absolute;
+    top: 0.5%;
+    left: 7.6%;
+    border-left: 5px solid rgb(255, 255, 255,0.9);
+    border-right: 5px solid rgb(255, 255, 255,0.9);
+}
+
+.mstrip {
+    width: 39px;
+    height: 647.5px;
+    background: rgb(71, 66, 66);
+    position: absolute;
+    top: 0.5%;
+    left: 43.5%;
+    border-left: 5px solid rgb(255, 255, 255,0.9);
+    border-right: 5px solid rgb(255, 255, 255,0.9);
+}
+
+.sstrip {
+    width: 39px;
+    height: 647.5px;
+    background: rgb(71, 66, 66);
+    position: absolute;
+    top: 0.5%;
+    left: 80.6%;
+    border-left: 5px solid rgb(255, 255, 255,0.9);
+    border-right: 5px solid rgb(255, 255, 255,0.9);
+}
+
+body.dark .hstrip{
+    background: rgb(245, 242, 242,0.9);
+    border-left: 5px solid rgb(0, 34, 255,0.9);
+    border-right: 5px solid rgba(0, 34, 255, 0.9);
+}
+
+body.dark .mstrip{
+    background: rgb(245, 242, 242,0.9);
+    border-left: 5px solid rgb(0, 34, 255,0.9);
+    border-right: 5px solid rgba(0, 34, 255, 0.9);
+}
+
+body.dark .sstrip{
+    background: rgb(245, 242, 242,0.9);
+    border-left: 5px solid rgb(0, 34, 255,0.9);
+    border-right: 5px solid rgba(0, 34, 255, 0.9);
+}
+
+#hour {
+    width: 52px;
+    height: 1px;
+    background: linear-gradient(rgb(90, 31, 92) ,rgb(255, 3, 24) 70%);
+    position: absolute;
+    top: 100.1%;
+    left: 7.3%;
+    transform-origin: top;
+}
+
+body.dark #hour {
+    background: linear-gradient(#0a1b23, rgb(253, 0, 0));
+}
+
+#minute {
+    width: 52px;
+    height: 1px;
+    background: linear-gradient(rgb(33, 14, 128),rgb(42, 0, 252) 70%);
+    position: absolute;
+    top: 100.1%;
+    left: 43.3%;
+    transform-origin: top;
+}
+
+body.dark #minute {
+    background: linear-gradient(#0a1b23,rgb(252, 2, 135));
+}
+
+#second {
+    width: 52px;
+    height: 1px;
+    background: linear-gradient(rgb(70, 17, 156),rgb(145, 7, 244) 70%);
+    position: absolute;
+    top: 100.1%;
+    left: 80.5%;
+    transform-origin: top;
+}
+
+body.dark #second {
+    background: linear-gradient(#0a1b23,rgb(249, 100, 1));
+}
+.show {
+    display: inline-block;
+    width: 75px;
+    height: 40px;
+    margin-top: 710px;
+    margin-left: 67px;
+    color:rgba(231, 217, 254);
+    text-align: center;
+    line-height: 40px;
+    font-size: 40px;
+    font-weight: 1000;
+    border-radius: 1%;
+}
+
+body.dark .show {
+    color: #0a1b23;
+}
+
+.show:hover {
+    color: #0a1b23;
+    cursor: none;
+}
+
+body.dark .show:hover {
+    color: rgba(231, 217, 254);
+}
+
+.ap {
+    width: 75px;
+    height: 40px;
+    position: absolute;
+    color: rgba(231, 217, 254);
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 40px;
+    font-size: 40px;
+    font-weight: 1000;
+    border-radius: 1%;
+}
+
+body.dark .ap {
+    color: #0a1b23;
+}
+
+.ap:hover {
+    color: #0a1b23;
+    cursor: none;
+}
+
+body.dark .ap:hover {
+    color: rgba(231, 217, 254);
+}
+
+.toggleClass {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
+    top: 96%;
+    left: 50%;
+    transform: translate(-50%,-95%);
+    background: rgba(231, 217, 254);
+    border: 5px solid #0a1b23;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #0a1b23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggleClass::before {
+    content: 'DARK';
+    position: absolute;
+}
+
+body.dark .toggleClass {
+    background: #0a1b23;
+    border: 5px solid rgba(231, 217, 254);
+    color: rgba(231, 217, 254);
+}
+
+body.dark .toggleClass::before {
+    content: 'LIGHT';
+    position: absolute;
+}
+
+.toggleClass:hover {
+    background: linear-gradient(rgb(253, 0, 0), rgb(252, 2, 135), rgb(249, 100, 1));
+    border: 5px solid #0a1b23;
+    cursor: pointer;
+}
+
+body.dark .toggleClass:hover {
+    background: linear-gradient(rgb(90, 31, 92) 10%, rgb(33, 14, 128) 40%, rgb(81, 18, 183) 90%);
+    border: 5px solid rgba(231, 217, 254);
+}
